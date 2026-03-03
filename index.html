@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Universal Quality Video Player</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Universal Video Player</h1>
+      <p class="subtitle">Play MP4/WebM files and adaptive streams (HLS/DASH) with manual quality selection.</p>
+
+      <section class="controls">
+        <label for="video-url">Video URL</label>
+        <div class="row">
+          <input id="video-url" type="url" placeholder="https://example.com/video.m3u8 or .mp4" />
+          <button id="load-url">Load URL</button>
+        </div>
+
+        <label for="file-input">Or choose a local file</label>
+        <input id="file-input" type="file" accept="video/*,.m3u8,.mpd" />
+
+        <div class="row small-gap">
+          <label for="quality-select">Quality</label>
+          <select id="quality-select" disabled>
+            <option value="auto">Auto</option>
+          </select>
+        </div>
+
+        <p id="status" class="status">Ready</p>
+      </section>
+
+      <section class="player-wrapper">
+        <video id="video" controls playsinline preload="metadata"></video>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
